@@ -762,6 +762,7 @@ h2 {
 }
 .post-icon {
   margin-left: 10px;
+  fill: var(--white-color);
 }
 
 /* Бекдроп */
@@ -873,19 +874,27 @@ h2 {
   margin: 0;
   padding: 11px 12px;
   background-color: transparent;
+  outline: transparent;
 }
 .modal-input:focus ~ .modal-icon {
-  background-color: var(--accent-color);
+  fill: var(--accent-color);
+}
+.modal-input:focus {
+  border-color: var(--accent-color);
 }
 .textarea {
+  display: inline-block;
   width: 448px;
   height: 120px;
   margin-bottom: 20px;
   padding: 12px 16px;
   border: 1px solid rgba(33, 33, 33, 0.2);
-  box-sizing: border-box;
   border-radius: 4px;
   resize: none;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.textarea:focus {
+  border: var(--accent-color);
 }
 .placeholder {
   font-family: 'Roboto';
@@ -901,31 +910,32 @@ h2 {
   -moz-appearance: none;
   appearance: none;
 }
-.checkbox-label {
-  align-items: center;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
 
-.checkbox-input:checked + .checkbox-icon {
-  fill: #ffffff;
+.checkbox-input:checked + .icon-check {
   background-color: var(--accent-color);
-  background-image: url(../images/icon-icon-check);
-  background-size: contain;
   background-origin: border-box;
-  border-color: var(--accent-color);
+  border-color: none;
+}
+.checkbox-input:checked + .icon-check {
+  fill: #ffffff;
 }
 .icon-check {
-  display: inline-block;
   width: 16px;
   height: 15px;
   border: 2px solid var(--primery-text-color);
   border-radius: 4px;
   opacity: 1;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #ffffff;
+}
+.icon-check:focus {
+  fill: #ffffff;
+  background-color: var(--accent-color);
 }
 
 .checkbox-text {
+  margin-bottom: 30px;
+  padding-right: 7px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -935,8 +945,12 @@ h2 {
   letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
+.checkbox-link {
+  display: inline-block;
+  color: var(--accent-color);
+}
 .modal-button {
-  display: flex;
+  display: block;
   width: 200px;
   height: 50px;
   justify-content: center;
@@ -960,4 +974,5 @@ h2 {
   letter-spacing: 0.06em;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: auto;
 }
